@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Application Shell Base">
+    <meta name="keywords" content="HTML,CSS,JavaScript">
+    <meta name="author" content="Vikram Kumar Srirangam">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./fonts/foundation-icons.css" />
+    <style>
+        *,
+        /**:before,
+        *:after {
+            padding: 0;
+            margin: 0;
+        }*/
+
+        html,
+        body {
+            overflow-x: hidden;
+            font-family: 'Fira Code';
+            font-size: 16px;
+        }
+
+        .container {
+            display: grid;
+
+            grid-template-areas:
+                "header header header"
+                "nav content side"
+                "footer footer footer";
+
+            grid-template-columns: 200px 1fr 200px;
+            grid-template-rows: auto 1fr auto;
+            grid-gap: 10px;
+
+            height: 100vh;
+        }
+
+        header {
+            grid-area: header;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav {
+            grid-area: nav;
+            margin-left: 0.5rem;
+        }
+
+        main {
+            grid-area: content;
+        }
+
+        aside {
+            grid-area: side;
+            margin-right: 0.5rem;
+        }
+
+        footer {
+            grid-area: footer;
+            background: aliceblue;
+            padding: 1rem;
+            /*for tool items*/
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /*for tool items*/
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-areas:
+                    "header"
+                    "nav"
+                    "content"
+                    "side"
+                    "footer";
+
+                grid-template-columns: 1fr;
+                grid-template-rows:
+                    auto
+                    /* Header */
+                    minmax(75px, auto)
+                    /* Nav */
+                    1fr
+                    /* Content */
+                    minmax(75px, auto)
+                    /* Sidebar */
+                    auto;
+                /* Footer */
+            }
+
+            nav,
+
+            aside {
+                margin: 0;
+            }
+
+            /* sidebar menu*/
+
+            .sidebar {
+                display: none;
+                background-color: aliceblue;
+            }
+
+            .hamburger-checkbox {
+                display: block !important;
+                position: absolute;
+                opacity: 0;
+            }
+
+            .hamburger-label {
+                position: absolute;
+                /* top: 32px;
+                left: 32px; */
+                z-index: 1;
+                display: block !important;
+                width: 42px;
+                height: 42px;
+                font: 42px/42px fontawesome;
+                text-align: center;
+                color: #444;
+                cursor: pointer;
+                overflow: hidden;
+            }
+
+            .hamburger-checkbox:checked~.hamburger-label:before {
+                content: '\f00d';
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                display: block;
+                width: 42px;
+                height: 42px;
+                font: 42px/42px fontawesome;
+                text-align: center;
+                color: #eee;
+            }
+
+            .hamburger-checkbox:checked~.sidebar {
+                display: inline-block;
+                width: 75%;
+                height: 100%;
+                padding-top: 6.5em;
+                position: absolute;
+                z-index: 100;
+            }
+
+            /*sidebar menu*/
+        }
+
+        .hamburger-label,
+        .hamburger-checkbox {
+            display: none;
+        }
+
+        .style2 {
+            font-size: 24px;
+            color: #2DAEBF;
+            cursor: pointer;
+            /*text-shadow: 0px 1px 0px #0092b3, 0px 2px 0px #0087a6, 0px 3px 0px #008099, 0px 4px 0px #00758c, 0px 5px 0px #555, 0px 6px 0px #006a80, 0px 0px 0px #006073, 0px 8px 7px #005566;*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <!-- Header content -->
+            <span>&nbsp;</span>
+            <span>Mojo</span>
+            <span>&nbsp;</span>
+        </header>
+
+        <input id="hamburger" type='checkbox' class="hamburger-checkbox">
+        <label for="hamburger" class="hamburger-label" role="button" aria-labelledby="menu">=</label>
+        <nav class="sidebar">
+            <!-- Navigation -->
+            <ul class="menu">
+                <li>Home</li>
+                <li>Products</li>
+                <li>Details</li>
+                <li>Where to buy</li>
+                <li>Contact</li>
+                <li>About</li>
+            </ul>
+        </nav>        
+
+        <main>
+            <!-- Main content -->
+            <p>
+                Grid is not a replacement for Flexbox and Flexbox is still the right solution for one dimension
+                placement and micro layouts. It’s very easy to combine grid and flexbox layouts and they are designed to
+                work well together. We can use flexbox on our header for example to have the elements inside the header
+                container be evenly distributed on the horizontal axis:
+            </p>
+            <p>
+                Grid is not a replacement for Flexbox and Flexbox is still the right solution for one dimension
+                placement and micro layouts. It’s very easy to combine grid and flexbox layouts and they are designed to
+                work well together. We can use flexbox on our header for example to have the elements inside the header
+                container be evenly distributed on the horizontal axis:
+            </p>
+            <p>
+                Grid is not a replacement for Flexbox and Flexbox is still the right solution for one dimension
+                placement and micro layouts. It’s very easy to combine grid and flexbox layouts and they are designed to
+                work well together. We can use flexbox on our header for example to have the elements inside the header
+                container be evenly distributed on the horizontal axis:
+            </p>
+            <p>
+                Grid is not a replacement for Flexbox and Flexbox is still the right solution for one dimension
+                placement and micro layouts. It’s very easy to combine grid and flexbox layouts and they are designed to
+                work well together. We can use flexbox on our header for example to have the elements inside the header
+                container be evenly distributed on the horizontal axis:
+            </p>
+        </main>
+
+        <aside>
+            <!-- Sidebar / Ads -->
+            Grid is not a replacement for Flexbox and Flexbox is still the right solution for one dimension
+            placement and micro layouts. It’s very easy to combine
+        </aside>
+
+        <footer>
+            <!-- Footer content -->
+            <span class="fi-graph-trend style2">&nbsp;</span>
+            <span class="fi-clock style2"></span>
+            <span class="fi-home style2">&nbsp;</span>
+            <span class="fi-torsos style2">&nbsp;</span>
+            <span class="fi-widget style2">&nbsp;</span>
+        </footer>
+    </div>
+</body>
+
+</html>
